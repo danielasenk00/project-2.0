@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת ניתוח נתונים - דשבורד</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #4a00e0, #8e2de2);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            text-align: right;
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+        .tableau-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>מערכת ניתוח נתונים מתקדמת</h1>
+        <p>
+            המערכת שלנו היא פלטפורמה חדשנית לניתוח נתונים, המאפשרת לעסקים לעבד מידע מורכב ולקבל תובנות בזמן אמת. היא משלבת כלי ויזואליזציה מתקדמים עם ממשק משתמש אינטואיטיבי, ומספקת יכולות חיזוי וניתוח מגמות. המערכת תומכת בהזרמת נתונים ממקורות מרובים ומסייעת בקבלת החלטות אסטרטגיות מבוססות נתונים.
+        </p>
+        <p>
+            הגרף המוצג להלן, המוטמע מ-Tableau Public, מציג את מגמות הצריכה של מוצרים שונים בקטגוריות השוק. הציר האופקי מייצג את רבעוני השנה, ואילו הציר האנכי מראה את נפח המכירות (באלפים). כל קו בגרף מייצג קטגוריית מוצר, והצבעים מבדילים בין הקטגוריות. ניתוח זה מאפשר לזהות מוצרים בעלי ביקוש גבוה ולהתאים את האסטרטגיה השיווקית בהתאם.
+        </p>
+        <div class="tableau-container">
+            <div id="tableauViz"></div>
+        </div>
+        <a href="index.html" class="button">חזרה לדף הבית</a>
+    </div>
+
+    <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+    <script>
+        function initViz() {
+            const containerDiv = document.getElementById("tableauViz");
+            const vizUrl = "https://public.tableau.com/views/PROJECT2_2_17467026410280/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link";
+            const options = {
+                hideTabs: true,
+                width: "100%",
+                height: "600px",
+                onFirstInteractive: function () {
+                    console.log("Tableau dashboard loaded successfully");
+                }
+            };
+            const viz = new tableau.Viz(containerDiv, vizUrl, options);
+        }
+        window.onload = initViz;
+    </script>
+</body>
+</html>
