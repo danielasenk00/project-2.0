@@ -3,102 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מערכת ניתוח נתונים - דשבורד</title>
+    <title>לוח מחוונים - מערכת ניהול נתונים</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
             color: #333;
             line-height: 1.6;
         }
+
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 0 auto;
             padding: 20px;
+        }
+
+        header {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 2.5em;
-        }
-        p {
-            text-align: right;
-            font-size: 1.1em;
-            margin: 15px 0;
-        }
-        .tableau-container {
-            margin: 30px 0;
             padding: 20px;
-            background: #f9f9f9;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
         }
+
+        header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #4a00e0, #8e2de2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .tableau-section {
+            text-align: center;
+        }
+
+        .tableauPlaceholder {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 820px;
+        }
+
         .button {
             display: inline-block;
             padding: 12px 25px;
-            background: linear-gradient(45deg, #00c4cc, #7d3cff);
+            background: linear-gradient(to right, #4a00e0, #8e2de2);
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin-top: 20px;
         }
+
         .button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
         @media (max-width: 768px) {
             .container {
-                margin: 20px;
                 padding: 15px;
             }
-            h1 {
-                font-size: 1.8em;
+
+            header h1 {
+                font-size: 2rem;
             }
-            p {
-                font-size: 1em;
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .section p {
+                font-size: 1rem;
+            }
+
+            .tableauPlaceholder {
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>מערכת ניתוח נתונים מתקדמת</h1>
-        <p>
-            המערכת שלנו היא פתרון חדשני לניתוח נתונים עסקיים, המאפשר איסוף, עיבוד וויזואליזציה של נתונים ממקורות מגוונים. היא מצוידת ביכולות למידת מכונה לחיזוי מגמות וזיהוי דפוסים, ומספקת ממשק משתמש נוח ומותאם אישית. המערכת תומכת בקבלת החלטות מבוססות נתונים תוך שיפור היעילות התפעולית.
-        </p>
-        <p>
-            הגרף המוצג להלן, המוטמע מ-Tableau Public, מציג את התפלגות ההוצאות של הארגון לפי קטגוריות תקציביות לאורך השנה. הציר האופקי מייצג את החודשים, והציר האנכי מציג את סכום ההוצאות (במיליונים). כל עמודה בגרף מייצגת קטגוריה תקציבית, והצבעים השונים מבדילים בין הקטגוריות. ניתוח זה מסייע בזיהוי תחומי הוצאה מרכזיים ומאפשר אופטימיזציה של התקציב.
-        </p>
-        <div class="tableau-container">
-            <div id="tableauViz"></div>
-        </div>
-        <a href="index.html" class="button">חזרה לדף הבית</a>
+        <header>
+            <h1>מערכת ניהול נתונים מתקדמת</h1>
+        </header>
+
+        <section class="section">
+            <h2>אודות המערכת</h2>
+            <p>
+                מערכת ניהול הנתונים שלנו מספקת פתרון מקיף לניתוח וויזואליזציה של מידע עסקי בזמן אמת. 
+                המערכת מאפשרת למשתמשים לעקוב אחר מדדי ביצוע מפתח (KPIs), לזהות מגמות ולקבל החלטות מבוססות נתונים. 
+                עם ממשק ידידותי ויכולות אנליטיות מתקדמות, המערכת מתאימה לצרכים של ארגונים בכל הגדלים.
+            </p>
+        </section>
+
+        <section class="section tableau-section" id="tableau">
+            <h2>לוח מחוונים אנליטי 📊</h2>
+            <p>
+                הגרף המוצג להלן מציג את הביצועים העסקיים של החברה לפי קטגוריות שונות, כולל מכירות, רווחים ונתוני לקוחות. 
+                השתמשו בסרגלי הניווט כדי לסנן את הנתונים ולקבל תובנות מעמיקות על המגמות והדפוסים.
+            </p>
+            <div class='tableauPlaceholder' id='viz1746706076816' style='position: relative'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='Dashboard 3 ' src='https://public.tableau.com/static/images/PR/PROJECT2_3_17467026935120/Dashboard3/1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='PROJECT2_3_17467026935120/Dashboard3' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https://public.tableau.com/static/images/PR/PROJECT2_3_17467026935120/Dashboard3/1.png' />
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                </object>
+            </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1746706076816');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                if (divElement.offsetWidth > 800) {
+                    vizElement.style.minWidth='420px';
+                    vizElement.style.maxWidth='650px';
+                    vizElement.style.width='100%';
+                    vizElement.style.minHeight='587px';
+                    vizElement.style.maxHeight='887px';
+                    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                } else if (divElement.offsetWidth > 500) {
+                    vizElement.style.minWidth='420px';
+                    vizElement.style.maxWidth='650px';
+                    vizElement.style.width='100%';
+                    vizElement.style.minHeight='587px';
+                    vizElement.style.maxHeight='887px';
+                    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                } else {
+                    vizElement.style.width='100%';
+                    vizElement.style.height='727px';
+                }
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+        </section>
+
+        <section class="section" style="text-align: center;">
+            <a href="index.html" class="button">חזרה לדף הבית</a>
+        </section>
+
+        <footer>
+            <p>© 2025 מערכת ניהול נתונים. כל הזכויות שמורות.</p>
+        </footer>
     </div>
 
-    <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
     <script>
-        function initViz() {
-            const containerDiv = document.getElementById("tableauViz");
-            const vizUrl = "https://public.tableau.com/views/PROJECT2_3_17467026935120/Dashboard3?:language=en-US&:display_count=n&:origin=viz_share_link";
-            const options = {
-                hideTabs: true,
-                width: "100%",
-                height: "600px",
-                onFirstInteractive: function () {
-                    console.log("Tableau dashboard loaded successfully");
-                }
-            };
-            const viz = new tableau.Viz(containerDiv, vizUrl, options);
-        }
-        window.onload = initViz;
+        // Smooth scroll to tableau section
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animation for sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
     </script>
 </body>
 </html>
